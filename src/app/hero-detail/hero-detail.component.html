@@ -1,8 +1,8 @@
-<div *ngIf="selectedHero">
+<div *ngIf="hero">
   <!-- 管道操作符“|”  -->
-  <h2>{{selectedHero.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{selectedHero.id}}</div>
-  <div><span>name: </span>{{selectedHero.name}}</div>
+  <h2>{{hero.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{hero.id}}</div>
+  <div><span>name: </span>{{hero.name}}</div>
 
   <div>
     <label>name:
@@ -11,7 +11,7 @@
         以便数据流可以双向流动：从 hero.name 属性流动到 textbox，
         并且从 textbox 流回到 hero.name
         ngModel来自一个可选模块 FormsModule 必须自行添加该模块才可以使用-->
-      <input [(ngModel)]="selectedHero.name" placeholder="name">
+      <input [(ngModel)]="hero.name" placeholder="name">
     </label>
   </div>
 </div>
