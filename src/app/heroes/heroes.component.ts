@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HEROES } from '../mock-heroes';
+// import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 @Component({
   //组件的选择器（css元素选择器）
   selector: 'app-heroes',
