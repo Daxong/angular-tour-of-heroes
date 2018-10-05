@@ -4,13 +4,15 @@ import { FormsModule } from '@angular/forms'; // 导入该模块，ngModel命令
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { MessagesComponent } from './messages/messages.component';
 
 //每个组件都必须声明在一个NgModule中一次
 @NgModule({
   declarations: [
     AppComponent,
     HeroesComponent,
-    HeroDetailComponent 
+    HeroDetailComponent,
+    MessagesComponent 
   ],
   imports: [
     BrowserModule,
