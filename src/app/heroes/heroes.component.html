@@ -1,13 +1,14 @@
 <h2>My Heroes</h2>
 <ul class="heroes">
-  <li *ngFor="let hero of heroes">
+  <!-- (click)事件绑定语法 onSelect()是自己编写的函数 在ts文件中-->
+  <li *ngFor="let hero of heroes" (click)="onSelect(hero)">
     <span class="badge">{{hero.id}}</span>{{hero.name}}
   </li>
 </ul>
 <!-- 管道操作符“|”  -->
-<h2>{{hero.name | uppercase}} Details</h2>
-<div><span>id: </span>{{hero.id}}</div>
-<div><span>name: </span>{{hero.name}}</div>
+<h2>{{selectedHero.name | uppercase}} Details</h2>
+<div><span>id: </span>{{selectedHero.id}}</div>
+<div><span>name: </span>{{selectedHero.name}}</div>
 
 <div>
   <label>name:
@@ -16,6 +17,6 @@
       以便数据流可以双向流动：从 hero.name 属性流动到 textbox，
       并且从 textbox 流回到 hero.name
       ngModel来自一个可选模块 FormsModule 必须自行添加该模块才可以使用-->
-    <input [(ngModel)]="hero.name" placeholder="name">
+    <input [(ngModel)]="selectedHero.name" placeholder="name">
   </label>
 </div>
