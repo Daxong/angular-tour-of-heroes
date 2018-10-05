@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
-import { HEROES } from '../mock-heroes';
-// import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
+import { HeroService } from '../hero.service';
 @Component({
   //组件的选择器（css元素选择器）
   selector: 'app-heroes',
@@ -13,10 +12,11 @@ import { HEROES } from '../mock-heroes';
 })
 //始终要export这个组件类，方便在其他地方导入
 export class HeroesComponent implements OnInit {
-
-  constructor() { }
+  //声明私有heroService属性，并标记为一个HeroService的注入点
+  constructor(private heroService: HeroService) { }
   //生命周期钩子 angular在创建完组件后很快就会调用这个 可以放置初始化逻辑
   ngOnInit() {
+    this.getHeroes();
   }
 
   // hero: Hero = {
@@ -24,11 +24,15 @@ export class HeroesComponent implements OnInit {
   //   name: 'Windstorm'
   // };
 
-  heroes = HEROES;
+  heroes: Hero[];
 
   selectedHero: Hero; //不赋值是因为应用初启动的时候并没有选择Hero
 
   onSelect(hero: Hero) {
     this.selectedHero = hero;
+  }
+  //注意这里两个getHeroes()，一个是heroesComponent内的，一个是HeroService内的
+  getHeroes(): void {
+    this.heroes = this.heroService.getHeroes();
   }
 }
