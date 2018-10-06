@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
+import { AppRoutingModule } from './app-routing.module';
 
 //每个组件都必须声明在一个NgModule中一次
 @NgModule({
@@ -16,7 +17,8 @@ import { MessagesComponent } from './messages/messages.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule //然后把FormsModule添加到@NgModule元数据的imports数组 ngModel命令正式生效了
+    FormsModule,
+    AppRoutingModule //然后把FormsModule添加到@NgModule元数据的imports数组 ngModel命令正式生效了
     
   ],
   providers: [],
